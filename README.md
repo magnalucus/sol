@@ -1,2 +1,2 @@
-# 솔리디티
-### 솔리디티에 대한 각종 자료입니다.
+# Solidity
+### Solidity sample
