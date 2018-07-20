@@ -71,8 +71,9 @@ contract BasicToken is ERC20Basic {
 
   mapping(address => uint256) balances;
 
-  uint256 totalSupply_;
-  string symbol;
+  uint256 public totalSupply;
+  string public name;
+  string public symbol;
 
   /**
    * Constructor function
@@ -80,8 +81,15 @@ contract BasicToken is ERC20Basic {
    * Initializes contract with initial supply tokens to the creator of the contract
   */
   function BasicToken(
-    string _symbol 
+    uint256 _supply, 
+    string _symbol, 
+    string _name
   ) public{
+//        totalSupply = initialSupply * 10 ** uint256(decimals);  // Update total supply with the decimal amount
+    if(_supply==0) _supply = 100000000;
+    totalSupply = _supply;
+    balances[msg.sender] = _supply; 
+    name = _name;                                   // Set the name for display purposes
     symbol = _symbol;                               // Set the symbol for display purposes
   }
 
@@ -90,7 +98,7 @@ contract BasicToken is ERC20Basic {
   * @dev Total number of tokens in existence
   */
   function totalSupply() public view returns (uint256) {
-    return totalSupply_;
+    return totalSupply;
   }
 
   /**
