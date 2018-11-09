@@ -113,9 +113,9 @@ contract EthersocialToken is ERC20Interface, Owned {
     // ------------------------------------------------------------------------
     // Constructor
     // ------------------------------------------------------------------------
-    function FixedSupplyToken() public {
-        symbol = "TEST";
-        name = "DDENGLE TEST";
+    function EthersocialToken() public {
+        symbol = "ESNTEST";
+        name = "Ethersocial ERC20 Token";
         decimals = 18;
         _totalSupply = 1000000 * 10**uint(decimals);
         balances[owner] = _totalSupply;
